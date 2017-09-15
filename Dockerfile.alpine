@@ -1,0 +1,11 @@
+FROM php:7.1-alpine
+MAINTAINER James Gilliland <neclimdul@gmail.com>
+
+ENV buildDeps="g++ autoconf make yaml-dev"
+RUN apk -U upgrade \
+  && apk add $buildDeps yaml \
+  && pecl install yaml-2.0.2 \
+  && docker-php-ext-enable yaml \
+  && apk del $buildDeps \
+  && rm -rf /var/cache/apk/* \
+  && rm -rf /tmp/*

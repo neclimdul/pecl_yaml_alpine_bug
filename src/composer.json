@@ -1,0 +1,11 @@
+{
+    "name": "neclimdul/yamltest",
+    "description": "...",
+    "type": "...",
+    "license": "GPL-2.0+",
+    "require": {
+        "symfony/yaml": "~3.2.8"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

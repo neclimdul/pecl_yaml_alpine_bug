@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  php-alpine:
+    build:
+      context: ./
+      dockerfile: Dockerfile.alpine
+    volumes:
+      - "./src:/usr/src"
+  php-debian:
+    build:
+      context: ./
+      dockerfile: Dockerfile.debian
+    volumes:
+      - "./src:/usr/src"
+  ruby-alpine:
+    image: ruby:alpine
+    volumes:
+      - "./src:/usr/src"
+  ruby-debian:
+    image: ruby:latest
+    volumes:
+      - "./src:/usr/src"

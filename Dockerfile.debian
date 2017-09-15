@@ -1,0 +1,13 @@
+FROM php:7.1-cli
+MAINTAINER James Gilliland <neclimdul@gmail.com>
+
+ENV buildDeps="autoconf libyaml-dev"
+RUN apt-get update \
+  && apt-get install -y $buildDeps libyaml-0-2 \
+  && pecl install yaml-2.0.2 \
+  && docker-php-ext-enable yaml \
+  && apt-get purge -y $buildDeps \
+  && apt-get -y autoremove \
+  && apt-get -y clean \
+  && rm -rf /var/lib/apt/lists/* \
+  && rm -rf /tmp/*
